@@ -30,6 +30,22 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-googlemaps-static`,
+      options: {
+          key: `AIzaSyAERjEtDrrHpXVG7auIXIbpu81IBHlqVZc`,
+          center: `Warsaw, Poland`,
+          points: ['świętokrzyska, Warsaw, Poland'],
+          size: `800x600`,
+      },
+  },
+  {
+    resolve: 'gatsby-source-googlemaps-geocoding',
+    options: {
+      key: `AIzaSyAERjEtDrrHpXVG7auIXIbpu81IBHlqVZc`,
+      address: `Warsaw, Poland`,
+    }
+  },
+    {
       resolve: `gatsby-plugin-prefetch-google-fonts`,
       options: {
         fonts: [
