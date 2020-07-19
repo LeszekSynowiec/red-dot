@@ -1,5 +1,5 @@
-import React, { useState } from "react"
-import styled, { css } from "styled-components"
+import React from "react"
+import styled from "styled-components"
 import { Link } from "gatsby"
 
 const HeaderWrapper = styled.div`
@@ -32,29 +32,22 @@ const MenuWrapper = styled.div`
 `
 
 const Header = () => {
-  const [active, setActive] = useState(2)
-
-  const handleChangeColor = e => {
-    setActive(e.target.name)
-  }
-
   return (
     <HeaderWrapper>
       <h1>
         Pracownia Projektowa <span>Red</span>
       </h1>
-      {console.log(active)}
-      <MenuWrapper >
-        <Link name={0} onClick={handleChangeColor} to="/" activeStyle={{color: '#8f181a'}}>
+      <MenuWrapper>
+        <Link name={0} to="/" activeStyle={{ color: "#8f181a" }}>
           kim jestem
         </Link>
-        <Link name={1} to="/portfolio" activeStyle={{color: '#8f181a'}}>
-          portfolii
+        <Link name={1} to="/portfolio" activeStyle={{ color: "#8f181a" }}>
+          portfolio
         </Link>
-        <Link name={2} to="/oferta" activeStyle={{color: '#8f181a'}}>
+        <Link name={2} to="/oferta" activeStyle={{ color: "#8f181a" }}>
           oferta
         </Link>
-        <Link name={3} to="/kontakt" activeStyle={{color: '#8f181a'}}>
+        <Link name={3} to="/kontakt" activeStyle={{ color: "#8f181a" }}>
           kontakt
         </Link>
       </MenuWrapper>

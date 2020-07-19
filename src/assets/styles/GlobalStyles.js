@@ -1,5 +1,4 @@
-import {createGlobalStyle} from 'styled-components'
-import React from 'react'
+import { createGlobalStyle } from "styled-components"
 
 const GlobalStyle = createGlobalStyle`
 
@@ -13,6 +12,7 @@ html {
   }
 
 body{
+    color: #707070;
     margin: 0;
     width: 100vw;
     height: 100vh;

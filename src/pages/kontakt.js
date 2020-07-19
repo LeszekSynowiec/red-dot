@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 import {
   withScriptjs,
   GoogleMap,
@@ -6,9 +6,10 @@ import {
   Marker,
 } from "react-google-maps"
 
-import {googleConfig} from '../assets/data/config'
 
-import styled from 'styled-components';
+import styled from "styled-components"
+
+const mapKey = process.env.REACT_APP_GOOGLE_KEY;
 
 const Map = withScriptjs(
   withGoogleMap(props => (
@@ -22,23 +23,32 @@ const Map = withScriptjs(
 )
 
 const KontaktWrapper = styled.div`
-width: 100%;
-height: 100%;
-padding: 0 50px;
-display: flex;
-align-items: center;
-flex-direction: column;
+  width: 100%;
+  padding: 0 50px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 `
-
 
 const Kontakt = () => {
   return (
     <KontaktWrapper>
       <Map
-        googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${googleConfig.key}`}
-        loadingElement={<div style={{ height: `100%` }} />}
-        containerElement={<div style={{ height: `400px`, width: '700px', border: '2px solid #8f181a' }} />}
-        mapElement={<div style={{ height: `100%` }} />}
+        googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${mapKey}`}
+        loadingElement={
+          <div style={{ height: `100%`, borderRadius: "25px" }} />
+        }
+        containerElement={
+          <div
+            style={{
+              height: `400px`,
+              width: "700px",
+              borderRadius: "25px",
+              boxShadow: "0px 3px 6px rgba(0, 0, 0, 0.16)",
+            }}
+          />
+        }
+        mapElement={<div style={{ height: `100%`, borderRadius: "25px" }} />}
       />
     </KontaktWrapper>
   )

@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
@@ -17,43 +19,43 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-styled-components`,
+    // {
+    //   resolve: `gatsby-plugin-manifest`,
+    //   options: {
+    //     name: `gatsby-starter-default`,
+    //     short_name: `starter`,
+    //     start_url: `/`,
+    //     background_color: `#663399`,
+    //     theme_color: `#663399`,
+    //     display: `minimal-ui`,
+    //     icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+    //   },
+    // },
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: `gatsby-source-datocms`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
-        start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        // You can find your read-only API token under the Settings > API tokens
+        // section of your administrative area:
+        apiToken: process.env.API_DATO_CMS,
+  
       },
     },
-    {
-      resolve: `gatsby-source-googlemaps-static`,
-      options: {
-          key: `AIzaSyAERjEtDrrHpXVG7auIXIbpu81IBHlqVZc`,
-          center: `Warsaw, Poland`,
-          points: ['świętokrzyska, Warsaw, Poland'],
-          size: `800x600`,
-      },
-  },
-  {
-    resolve: 'gatsby-source-googlemaps-geocoding',
-    options: {
-      key: `AIzaSyAERjEtDrrHpXVG7auIXIbpu81IBHlqVZc`,
-      address: `Warsaw, Poland`,
-    }
-  },
     {
       resolve: `gatsby-plugin-prefetch-google-fonts`,
       options: {
         fonts: [
           {
             family: `Montserrat`,
+            subset: ['"latin-ext"'],
             variant: ["100", "200", "100i", "300i", "400", "700"],
           },
         ],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-env-variables`,
+      options: {
+        allowList: ["REACT_APP_GOOGLE_KEY"]
       },
     },
 

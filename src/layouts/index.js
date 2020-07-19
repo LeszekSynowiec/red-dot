@@ -1,9 +1,7 @@
 import React from "react"
 import styled from "styled-components"
-import Link from 'gatsby'
 
-import img from "../assets/images/35114123_1018408368312691_1864817775642411008_o.png"
-import testImg from '../assets/images/35114123_1018408368312691_1864817775642411008_o.svg'
+import img from '../assets/images/35114123_1018408368312691_1864817775642411008_o.svg'
 
 import GlobalStyle from "../assets/styles/GlobalStyles"
 
@@ -35,7 +33,7 @@ const ImageBackgroundWrapper = styled.div`
       rgba(255, 255, 255, 0) 15%,
       rgba(255, 255, 255, 1)
     ),
-    url(${testImg});
+    url(${img});
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

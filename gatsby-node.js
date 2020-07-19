@@ -1,7 +1,26 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+const path = require("path")
+const { create } = require("domain")
 
-// You can delete this file if you're not using it
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions
+  const projectTemplate = path.resolve(`src/layouts/project.js`)
+  const result = await graphql(`
+    query queryCMSPage {
+      allDatoCmsProject {
+        nodes {
+          id
+        }
+      }
+    }
+  `)
+
+  result.data.allDatoCmsProject.nodes.forEach(project => {
+    createPage({
+      path: `portfolio/wnetrza/${project.id}`,
+      component: projectTemplate,
+      context: {
+        id: project.id,
+      },
+    })
+  })
+}
