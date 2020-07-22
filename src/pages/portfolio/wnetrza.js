@@ -7,6 +7,7 @@ import CardProject from "../../components/card-project/card-project.component"
 const PageWrapper = styled.div`
   &:-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
     background-color: #f5f5f5;
   }
@@ -17,24 +18,25 @@ const PageWrapper = styled.div`
   }
 
   &::-webkit-scrollbar-thumb {
-  
     border-radius: 5px;
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     background-color: #707070;
   }
 
-  width: 90%;
-  height: 100px;
+  width: 890px;
   min-height: 60%;
-  padding: 0 40px;
   overflow-y: scroll;
+  display: grid;
+  padding-top: 10px;
+  grid-template-columns: 1fr 1fr;
 `
 
 const Wnetrza = ({ data }) => (
   <PageWrapper>
-    {console.log(data)}
     {data.allDatoCmsProject.nodes.map(project => (
       <CardProject
+        url={`/portfolio/wnetrza/${project.id}`}
         key={project.id}
         title={project.title}
         location={project.location}
@@ -52,8 +54,8 @@ export const query = graphql`
         title
         location
         mainPhoto {
-          fixed(width: 890) {
-            ...GatsbyDatoCmsFixed_tracedSVG
+          fluid {
+            ...GatsbyDatoCmsFluid_tracedSVG
           }
         }
       }

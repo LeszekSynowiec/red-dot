@@ -7,6 +7,7 @@ const HeaderWrapper = styled.div`
   flex-direction: column;
   width: 100%;
   height: 20%;
+  min-height: 200px;
   padding-top: 65px;
   margin-bottom: 90px;
   h1 {

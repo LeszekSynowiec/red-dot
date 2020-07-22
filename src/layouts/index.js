@@ -39,8 +39,11 @@ const ImageBackgroundWrapper = styled.div`
   background-repeat: no-repeat;
 `
 const ContentWrapper = styled.div`
-  width: 73%;
+  width: 70%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `
 
 const MainLayout = ({ children }) => (
