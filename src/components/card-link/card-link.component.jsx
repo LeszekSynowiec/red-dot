@@ -3,9 +3,9 @@ import styled from "styled-components"
 import Img from "gatsby-image"
 import { Link } from "gatsby"
 
-const CardLinkWrapper = styled.div`
-  height: 410px;
-  width: 295px;
+const CardLinkWrapper = styled(Link)`
+  height: 100%;
+  width: 28%;
   font-size: 35px;
   font-style: italic;
   font-weight: 100;
@@ -21,13 +21,16 @@ const CardLinkWrapper = styled.div`
 `
 const CardLinkImageWrapper = styled.div`
   width: 100%;
-  height: 87%;
+  height: 100%;
   overflow: hidden;
   transition: 2s;
 `
 const CardLinkContentWrapper = styled.div`
   width: 100%;
   height: 13%;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.8);
+  top: -13%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -36,13 +39,17 @@ const CardLinkContentWrapper = styled.div`
 `
 
 const CardLink = ({ text, image, url }) => (
-  <CardLinkWrapper>
-    <Link to={url}>
-      <CardLinkImageWrapper>
-        <Img fixed={image} imgStyle={{ transition: " transform 5s " }} />
-      </CardLinkImageWrapper>
-      <CardLinkContentWrapper>{text}</CardLinkContentWrapper>
-    </Link>
+  <CardLinkWrapper to={url}>
+    <CardLinkImageWrapper>
+      <Img
+        fluid={image}
+        style={{height: '100%'}}
+        imgStyle={{
+          transition: " transform 5s ",
+        }}
+      />
+    </CardLinkImageWrapper>
+    <CardLinkContentWrapper>{text}</CardLinkContentWrapper>
   </CardLinkWrapper>
 )
 

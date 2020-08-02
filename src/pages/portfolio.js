@@ -13,20 +13,19 @@ const ContentWrapper = styled.div`
 
 const Portfolio = ({ data }) => {
   return (
-    <>
-      <ContentWrapper>
-          <CardLink
-            url="/portfolio/wnetrza"
-            text="Wnetrza"
-            image={data.allFile.nodes[1].childImageSharp.fixed}
-          />
-        <CardLink
-          text="Wzornictwo"
-          url="/portfolio/wzornictwo"
-          image={data.allFile.nodes[0].childImageSharp.fixed}
-        />
-      </ContentWrapper>
-    </>
+    <ContentWrapper>
+      {console.log(data)}
+      <CardLink
+        url="/portfolio/wnetrza"
+        text="Wnetrza"
+        image={data.allFile.nodes[1].childImageSharp.fluid}
+      />
+      <CardLink
+        text="Wzornictwo"
+        url="/portfolio/wzornictwo"
+        image={data.allFile.nodes[0].childImageSharp.fluid}
+      />
+    </ContentWrapper>
   )
 }
 
@@ -35,8 +34,8 @@ export const query = graphql`
     allFile(filter: { name: { regex: "/portfolio/" } }) {
       nodes {
         childImageSharp {
-          fixed(width: 295, height: 355, quality: 100) {
-            ...GatsbyImageSharpFixed
+          fluid{
+            ...GatsbyImageSharpFluid
           }
         }
       }

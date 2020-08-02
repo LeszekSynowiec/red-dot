@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 import Image from "gatsby-image"
 
 const CardWrapper = styled(Link)`
-  width: 376px;
+  width: 50%;
   height: 195px;
   display: flex;
   flex-direction: column;
@@ -28,7 +28,7 @@ const StyledImage = styled(Image)`
 const ContentWrapper = styled.div`
   position: relative;
   width: 100%;
-  height: 35px;
+  height: 25px;
   display: flex;
   justify-content: space-around;
   background-color: white;

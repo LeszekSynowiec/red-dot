@@ -24,10 +24,10 @@ const MenuWrapper = styled.div`
   justify-content: center;
   a {
     padding: 0 5px;
-    color: "#707070";
 
     &:not(:last-child):after {
       content: " |";
+      color: #707070;
     }
   }
 `
@@ -39,16 +39,25 @@ const Header = () => {
         Pracownia Projektowa <span>Red</span>
       </h1>
       <MenuWrapper>
-        <Link name={0} to="/" activeStyle={{ color: "#8f181a" }}>
+        <Link
+          to="/"
+          activeStyle={{
+            color: "#8f181a",
+          }}
+        >
           kim jestem
         </Link>
-        <Link name={1} to="/portfolio" activeStyle={{ color: "#8f181a" }}>
+        <Link
+          to="/portfolio"
+          activeStyle={{ color: "#8f181a" }}
+          partiallyActive={true}
+        >
           portfolio
         </Link>
-        <Link name={2} to="/oferta" activeStyle={{ color: "#8f181a" }}>
+        <Link to="/oferta" activeStyle={{ color: "#8f181a" }}>
           oferta
         </Link>
-        <Link name={3} to="/kontakt" activeStyle={{ color: "#8f181a" }}>
+        <Link to="/kontakt" activeStyle={{ color: "#8f181a" }}>
           kontakt
         </Link>
       </MenuWrapper>

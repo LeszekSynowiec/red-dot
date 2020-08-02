@@ -23,7 +23,6 @@ const PageWrapper = styled.div`
   height: 60%;
   display: flex;
   flex-direction: column;
-  overflow-y: scroll;
   &:-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
